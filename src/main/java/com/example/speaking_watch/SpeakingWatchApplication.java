@@ -8,6 +8,7 @@ public class SpeakingWatchApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpeakingWatchApplication.class, args);
+		System.out.println("Project ready!");
 	}
 
 }

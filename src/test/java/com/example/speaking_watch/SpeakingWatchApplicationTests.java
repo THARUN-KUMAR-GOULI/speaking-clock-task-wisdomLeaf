@@ -8,8 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.matchers.Equals;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -18,8 +16,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.springframework.test.util.AssertionErrors.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -78,7 +75,7 @@ class SpeakingWatchApplicationTests {
 
 	@Test
 	public void testConvertTime_InvalidTimeFormat_Negative() throws Exception {
-		String inputTime = "12-00";  // Invalid format
+		String inputTime = "12-00";
 		String expectedOutput = "Invalid format";
 
 		Mockito.when(clockService.convertTime(inputTime)).thenReturn(expectedOutput);
